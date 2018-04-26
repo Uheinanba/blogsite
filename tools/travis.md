@@ -37,7 +37,7 @@ env:
 重点看看 git push -f "https://${REPO_TOKEN}@${GH_REF}" master:gh-pages这段。
 通过env可以定义变量: GH_REF代表的是Git通过https的链接获取的地址。
 
-REPO_TOKEN: 代表着私密的访问token(在https://github.com/settings/tokens网站生成)。这个私密的token不能明文的写在travis.yml文件中,所以travis项目网站中设置Environment Variables(和定义env->global性质是一致的)。优势在于这些密钥存在远程服务端,别人无法知道(很好的一个设计方式)
+REPO_TOKEN: 代表着私密的访问token(在https://github.com/settings/tokens网站生成)。这个私密的token不能明文的写在travis.yml文件中,所以travis项目网站中设置Environment Variables(和定义env 性质是一致的)。优势在于这些密钥存在远程服务端,别人无法知道(很好的一个设计方式)
 
 
 ::: tip
