@@ -1,0 +1,23 @@
+{
+  "name": "blogsite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev",
+    "docs:build": "vuepress build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Uheinanba/blogsite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Uheinanba/blogsite/issues"
+  },
+  "homepage": "https://github.com/Uheinanba/blogsite#readme"
+}
