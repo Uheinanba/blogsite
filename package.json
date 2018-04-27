@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/Uheinanba/blogsite/issues"
   },
-  "homepage": "https://github.com/Uheinanba/blogsite#readme"
+  "homepage": "https://github.com/Uheinanba/blogsite#readme",
+  "dependencies": {
+    "element-ui": "^2.3.6"
+  }
 }

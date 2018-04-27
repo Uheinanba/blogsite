@@ -4,6 +4,7 @@ title: tools
 
 # 常用工具指南
 ## [travis ci搭建](./travis.md)
+## [vuepress使用](./vuepress.md)
 
 ## nginx
 

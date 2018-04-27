@@ -6,6 +6,20 @@ module.exports = {
         nav: [
             // { text: 'COUNTER', link: '/counter/' },
             { text: '工具', link: '/tools/' },
+            {
+                text: 'github',
+                // 这里是下拉列表展现形式。
+                items: [
+                    {   
+                        text: 'focus-outside', 
+                        link: 'https://github.com/TaoXuSheng/focus-outside' 
+                    },
+                    {   
+                        text: 'stylus-converter', 
+                        link: 'https://github.com/TaoXuSheng/stylus-converter' 
+                    },
+                ]
+            }
         ],
         // sidebar: [
         //     {
@@ -19,8 +33,8 @@ module.exports = {
         //       title: 'API Guide',
         //       collapsable: false,
         //       children: [
-        //           '/guide/guide',
-        //           '/guide/api'
+        //           '/tools/guide',
+        //           '/tools/api'
         //       ]
         //     }
         // ]

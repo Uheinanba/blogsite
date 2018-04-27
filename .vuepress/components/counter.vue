@@ -1,6 +1,7 @@
 <template>
   <div class="counter">
       <h1>{{number}}</h1>
+      
       <button @click = "increment">Increment</button>
       <button @click = "decrement">Decrement</button>
   </div>
