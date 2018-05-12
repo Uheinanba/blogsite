@@ -2,6 +2,7 @@
 title: react in patterns
 ---
 
+# react-in-patterns
 ## Composition 组合
 > React最大的一个优势在于组合性,下面探讨下react组合的一些技巧
 
