@@ -17,6 +17,15 @@ module.exports = {
             }
           ]
         },
+        { 
+          text: 'javascript', 
+          items: [
+            {
+              text: 'FP',
+              link: '/js/'
+            }
+          ],
+        },
         { text: '工具', link: '/tools/' },
         // {
         //   text: 'github',
