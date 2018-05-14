@@ -21,8 +21,12 @@ module.exports = {
           text: 'javascript', 
           items: [
             {
-              text: 'FP',
-              link: '/js/'
+              text: '函数式编程',
+              link: '/fp/'
+            },
+            {
+              text: 'AST',
+              link: '/ast/'
             }
           ],
         },
