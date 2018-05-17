@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>黑曼巴个人博客 | javascript function programming</title>
+    <meta name="description" content="用于平时记录学习和心得的小天地">
+    
+    
+    <link rel="preload" href="/blogsite/assets/css/0.styles.432babc9.css" as="style"><link rel="preload" href="/blogsite/assets/js/app.cf137931.js" as="script"><link rel="preload" href="/blogsite/assets/js/11.1bb10b6b.js" as="script"><link rel="prefetch" href="/blogsite/assets/js/10.2b5dcc51.js"><link rel="prefetch" href="/blogsite/assets/js/1.7585f36b.js"><link rel="prefetch" href="/blogsite/assets/js/2.e1b99b9c.js"><link rel="prefetch" href="/blogsite/assets/js/3.20f50f93.js"><link rel="prefetch" href="/blogsite/assets/js/4.603cb0b6.js"><link rel="prefetch" href="/blogsite/assets/js/5.d4129559.js"><link rel="prefetch" href="/blogsite/assets/js/6.2ef45a77.js"><link rel="prefetch" href="/blogsite/assets/js/7.ea56e563.js"><link rel="prefetch" href="/blogsite/assets/js/8.9527f235.js"><link rel="prefetch" href="/blogsite/assets/js/9.24bb49df.js"><link rel="prefetch" href="/blogsite/assets/js/12.6f18d836.js"><link rel="prefetch" href="/blogsite/assets/js/13.3652407e.js"><link rel="prefetch" href="/blogsite/assets/js/14.f13b26b1.js"><link rel="prefetch" href="/blogsite/assets/js/15.3b70d352.js"><link rel="prefetch" href="/blogsite/assets/js/16.bbb8eb49.js"><link rel="prefetch" href="/blogsite/assets/js/17.ef5f2423.js"><link rel="prefetch" href="/blogsite/assets/js/18.ed11c92c.js"><link rel="prefetch" href="/blogsite/assets/js/19.4f51ced4.js"><link rel="prefetch" href="/blogsite/assets/js/20.199ad0d9.js"><link rel="prefetch" href="/blogsite/assets/js/21.c0d5fc9a.js"><link rel="prefetch" href="/blogsite/assets/js/22.8686f917.js">
+    <link rel="stylesheet" href="/blogsite/assets/css/0.styles.432babc9.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/blogsite/" class="home-link router-link-active"><!----><span class="site-name">
+      黑曼巴个人博客
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">前端框架</span><span class="arrow right"></span></a><ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----><a href="/blogsite/react/" class="nav-link">React</a></li><li class="dropdown-item"><!----><a href="/blogsite/vue/" class="nav-link">Vue</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">javascript</span><span class="arrow right"></span></a><ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----><a href="/blogsite/fp/" class="nav-link router-link-active">函数式编程</a></li><li class="dropdown-item"><!----><a href="/blogsite/ast/" class="nav-link">AST</a></li></ul></div></div><div class="nav-item"><a href="/blogsite/tools/" class="nav-link">工具</a></div><!----></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">前端框架</span><span class="arrow right"></span></a><ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----><a href="/blogsite/react/" class="nav-link">React</a></li><li class="dropdown-item"><!----><a href="/blogsite/vue/" class="nav-link">Vue</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">javascript</span><span class="arrow right"></span></a><ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----><a href="/blogsite/fp/" class="nav-link router-link-active">函数式编程</a></li><li class="dropdown-item"><!----><a href="/blogsite/ast/" class="nav-link">AST</a></li></ul></div></div><div class="nav-item"><a href="/blogsite/tools/" class="nav-link">工具</a></div><!----></nav><!----></div><div class="page"><div class="content"><h1 id="react-standard"><a href="#react-standard" aria-hidden="true" class="header-anchor">#</a> React-standard</h1><h2 id="简介"><a href="#简介" aria-hidden="true" class="header-anchor">#</a> 简介</h2><p>面向对象语言的问题是，它们永远都要随身携带哪些隐式的环境。</p><h3 id="案例"><a href="#案例" aria-hidden="true" class="header-anchor">#</a> 案例</h3><pre class="language-text"><code>function splat(func) {
+   return function() {
+       return func.apply(null, _.toArray(arguments));
+   }
+}
+</code></pre><h2 id="一等函数和applicative编程"><a href="#一等函数和applicative编程" aria-hidden="true" class="header-anchor">#</a> 一等函数和Applicative编程</h2><h3 id="一等函数"><a href="#一等函数" aria-hidden="true" class="header-anchor">#</a> 一等函数</h3><ol><li>函数看做&quot;一等公民&quot;时，它可以去任何值可以去的地方,很少有限制。</li><li>当我们使用“函数”这个词的时候,指的独立存在的函数, 而“方法”指的是在对象上下文创建出来的函数。</li></ol><h3 id="applocative编程"><a href="#applocative编程" aria-hidden="true" class="header-anchor">#</a> Applocative编程</h3><p>Applocative编程定义为: 函数A作为参数提供给函数B
+最典型的: map, reducer, forEach, filter。</p><h2 id="变量作用域和闭包"><a href="#变量作用域和闭包" aria-hidden="true" class="header-anchor">#</a> 变量作用域和闭包</h2><ol><li>自由变量
+如果一个函数包含内部函数，那么它们都可以看到其中声明的变量, 这些变量称为“自由”变量。</li></ol><p>自由变量可以是函数内部声明的变量, 也可以是参数。
+闭包可以捕捉自由变量,可以是任何类型,包括函数。捕捉函数(高阶函数)是构建抽象的强大技术</p><ol start="2"><li>闭包</li></ol><h3 id="高阶函数"><a href="#高阶函数" aria-hidden="true" class="header-anchor">#</a> 高阶函数</h3><ol><li>高阶函数遵循一个明确定义</li></ol><ul><li>函数是一等公民</li><li>以一个函数为参数</li><li>以一个函数为返回结果(惰性求值)</li></ul><ol start="2"><li>关于传递函数的更多思考:重复,反复和条件迭代(iterateUntil)</li></ol><ul><li>下面使用函数抽象出处理方法</li></ul><pre class="language-text"><code>function repeatedly(times, fun) {
+    return _.map(_.range(times), fun);
+}
+
+const abc = repeatedly(3, function() {
+    return Math.floor(Math.random() * 10) + 1;
+});
+</code></pre><ul><li>再进一步,我们使得条件也抽象出来。</li></ul><pre class="language-text"><code>function iterateUntil(fun, check, init) {
+    var ret = [];
+    var result = fun(init);
+    while(check(result)) {
+        ret.push(result);
+        result = fun(result);
+    }
+    return ret;
+}
+
+var a = iterateUntil(function(n) {
+    return n + n
+}, function(n) {
+    return n &lt;= 1024
+}, 1);
+</code></pre><ol start="3"><li>返回其他函数的函数</li></ol><ul><li>闭包
+<ul><li>首先闭包会捕获一个值(或引用),并多次返回相同的值</li><li>每一个新闭包都会捕获不一样的值</li></ul></li><li>陷阱</li></ul><pre class="language-text"><code>var generator = {
+    count: 1,
+    uniqueString: function(prefix) {
+        return [prefix, this.count].join('');
+    }
+}
+</code></pre><p>这里如果用户这样来使用就会出现问题:</p><pre class="language-text"><code>var uniqueString = generator.uniqueString;
+uniqueString('ceshi');
+</code></pre><h3 id="由函数构建函数"><a href="#由函数构建函数" aria-hidden="true" class="header-anchor">#</a> 由函数构建函数</h3><ol><li>柯里化,科利华函数逐渐返回消耗参数的函数, 直到所有参数耗尽。</li><li>部分应用是一个“部分”执行，等待接受剩余的参数立即执行的函数。</li></ol><h3 id="curry柯里化"><a href="#curry柯里化" aria-hidden="true" class="header-anchor">#</a> curry柯里化</h3><ol><li>基本curry函数</li></ol><pre class="language-text"><code>function curryHelper(fn) {
+    var _args = Array.prototype.slice.call(arguments, 1);
+    return function() {
+        var _newArgs  = Array.prototype.slice.call(arguments);
+        var _totalArgs = _args.concat(_newArgs);
+        return  fn.apply(this, _totalArgs);
+    }
+}
+
+function showMsg(name, age, fruit) {
+    console.log('my name is' + name + 'i am '+age+ 'i like' + fruit);
+}
+
+const curryShowMsg  = curryHelper(showMsg, 'yuank');
+curryShowMsg(22, 'apple');
+</code></pre><ol start="2"><li><p>我们希望扩展为: 任意次数的调用,传递的参数不是按照顺序来传递。</p></li><li><p>setTimeout封装场景</p></li></ol><pre class="language-text"><code>function timer(fn, delay) {
+    setTimeout(fn ,delay)
+}
+const curriedTimout = _.curry(timer);
+const delay1000 = curriedTimout(_, 1000)
+delay1000(() =&gt; console.log(2323))
+</code></pre><h3 id="partial"><a href="#partial" aria-hidden="true" class="header-anchor">#</a> partial</h3><pre class="language-text"><code>function timer(fn, delay) {
+    setTimeout(fn ,delay)
+}
+const delay1000 = _.partial(timer, _, 1000);
+delay1000(() =&gt; console.log(2324))
+</code></pre><h3 id="三个重要的函数"><a href="#三个重要的函数" aria-hidden="true" class="header-anchor">#</a> 三个重要的函数</h3><p>curry
+partail
+compose</p><h2 id="递归"><a href="#递归" aria-hidden="true" class="header-anchor">#</a> 递归</h2><ol><li>理解递归对理解函数式编程非常重要:</li></ol><ul><li>递归的解决方案包括使用对一个普通问题子集的单一抽象的使用。</li><li>递归可以隐藏可变状态。</li><li>递归是一种实现惰性和无限大架构的方法。</li></ul><ol start="2"><li>myLength 接收一个数组,并返回数组的长度(TODO)</li></ol><pre class="language-text"><code>function myLength(ary) {
+    if(ary.length === 0 ) {
+        return 0
+    } else {
+        myLength
+    }
+}
+myLength(_.range(10))
+</code></pre></div><!----><!----></div></div></div>
+    <script src="/blogsite/assets/js/11.1bb10b6b.js" defer></script><script src="/blogsite/assets/js/app.cf137931.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>黑曼巴个人博客 | Babel 插件手册</title>
+    <meta name="description" content="用于平时记录学习和心得的小天地">
+    
+    
+    <link rel="preload" href="/blogsite/assets/css/0.styles.432babc9.css" as="style"><link rel="preload" href="/blogsite/assets/js/app.cf137931.js" as="script"><link rel="preload" href="/blogsite/assets/js/17.ef5f2423.js" as="script"><link rel="prefetch" href="/blogsite/assets/js/10.2b5dcc51.js"><link rel="prefetch" href="/blogsite/assets/js/1.7585f36b.js"><link rel="prefetch" href="/blogsite/assets/js/2.e1b99b9c.js"><link rel="prefetch" href="/blogsite/assets/js/3.20f50f93.js"><link rel="prefetch" href="/blogsite/assets/js/4.603cb0b6.js"><link rel="prefetch" href="/blogsite/assets/js/5.d4129559.js"><link rel="prefetch" href="/blogsite/assets/js/6.2ef45a77.js"><link rel="prefetch" href="/blogsite/assets/js/7.ea56e563.js"><link rel="prefetch" href="/blogsite/assets/js/8.9527f235.js"><link rel="prefetch" href="/blogsite/assets/js/9.24bb49df.js"><link rel="prefetch" href="/blogsite/assets/js/11.1bb10b6b.js"><link rel="prefetch" href="/blogsite/assets/js/12.6f18d836.js"><link rel="prefetch" href="/blogsite/assets/js/13.3652407e.js"><link rel="prefetch" href="/blogsite/assets/js/14.f13b26b1.js"><link rel="prefetch" href="/blogsite/assets/js/15.3b70d352.js"><link rel="prefetch" href="/blogsite/assets/js/16.bbb8eb49.js"><link rel="prefetch" href="/blogsite/assets/js/18.ed11c92c.js"><link rel="prefetch" href="/blogsite/assets/js/19.4f51ced4.js"><link rel="prefetch" href="/blogsite/assets/js/20.199ad0d9.js"><link rel="prefetch" href="/blogsite/assets/js/21.c0d5fc9a.js"><link rel="prefetch" href="/blogsite/assets/js/22.8686f917.js">
+    <link rel="stylesheet" href="/blogsite/assets/css/0.styles.432babc9.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/blogsite/" class="home-link router-link-active"><!----><span class="site-name">
+      黑曼巴个人博客
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">前端框架</span><span class="arrow right"></span></a><ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----><a href="/blogsite/react/" class="nav-link">React</a></li><li class="dropdown-item"><!----><a href="/blogsite/vue/" class="nav-link">Vue</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">javascript</span><span class="arrow right"></span></a><ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----><a href="/blogsite/fp/" class="nav-link">函数式编程</a></li><li class="dropdown-item"><!----><a href="/blogsite/ast/" class="nav-link router-link-active">AST</a></li></ul></div></div><div class="nav-item"><a href="/blogsite/tools/" class="nav-link">工具</a></div><!----></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">前端框架</span><span class="arrow right"></span></a><ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----><a href="/blogsite/react/" class="nav-link">React</a></li><li class="dropdown-item"><!----><a href="/blogsite/vue/" class="nav-link">Vue</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">javascript</span><span class="arrow right"></span></a><ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----><a href="/blogsite/fp/" class="nav-link">函数式编程</a></li><li class="dropdown-item"><!----><a href="/blogsite/ast/" class="nav-link router-link-active">AST</a></li></ul></div></div><div class="nav-item"><a href="/blogsite/tools/" class="nav-link">工具</a></div><!----></nav><!----></div><div class="page"><div class="content"><h1 id="babel-插件手册"><a href="#babel-插件手册" aria-hidden="true" class="header-anchor">#</a> Babel 插件手册</h1><h3 id="babel-工作原理"><a href="#babel-工作原理" aria-hidden="true" class="header-anchor">#</a> babel 工作原理</h3><pre><code>   Parse         Transform          Generator
+</code></pre><p>code --------&gt; AST ------------&gt;  AST --------------&gt;  code
+babylon      babel-traverse     babel-generator</p><h3 id="基础"><a href="#基础" aria-hidden="true" class="header-anchor">#</a> 基础</h3><p>Babel是javascript编译器,更确切的说是源码到源码的编译器，通常称为“转换编译器(transpiler)”意思是说你为Babel提供一些JavaScript代码，Babel更改这些代码，然后返回给你新的代码。</p><h4 id="asts"><a href="#asts" aria-hidden="true" class="header-anchor">#</a> ASTs</h4><p>使用<a href="http://astexplorer.net" target="_blank" rel="noopener noreferrer">AST Explorer</a>可以对AST节点有更感性的认识。</p><p>比如:</p><pre class="language-text"><code>function square(n) {
+  return n * n;
+}
+</code></pre><p>AST 的每层结构相同:</p><pre class="language-text"><code>{
+  type: &quot;FunctionDeclaration&quot;,
+  id: {...},
+  params: [...],
+  body: {...}
+}
+</code></pre><pre class="language-text"><code>{
+  type: &quot;Identifier&quot;,
+  name: ...
+}
+</code></pre><pre class="language-text"><code>{
+  type: &quot;BinaryExpression&quot;,
+  operator: ...,
+  left: {...},
+  right: {...}
+}
+</code></pre><p>这样的每层结构称为节点(Node),一个AST可以由单一节点或者成百上千节点构成。他们组合在一起可以描述用于静态分析的程序语法。
+可以描述为</p><pre class="language-text"><code>interface Node {
+  type: string; // 'FunctionDeclaration', 'Identifier', 'BinaryExpression'
+}
+</code></pre><h4 id="visitor"><a href="#visitor" aria-hidden="true" class="header-anchor">#</a> Visitor</h4><p>Visitor是一个用于AST遍历跨语言的模式，简单的来讲它们就是一个对象，定义了用于在一个树状结构中获取具体节点的方法。</p><p>比如:我只是想访问if...else生成的节点，我们可以在visitor里指定获取它所对应的节点</p><pre class="language-text"><code>const visitor = {
+    IFStatement() {
+        console.log('get if');
+    }
+}
+</code></pre><p>其实上述遍历会让每个节点被访问两次，一次是向下遍历代表进入(enter),一次是向上退出(exit)。因此实际上每个节点都会有enter和exit方法，在实际操作的时候需要注意这种遍历方式可能会引起一些问题。 上面例子是忽略掉enter的简写</p><pre class="language-text"><code>const visitor = {
+    IfStatement: {
+        enter() {},
+        exit() {}
+    }
+}
+</code></pre><h4 id="path"><a href="#path" aria-hidden="true" class="header-anchor">#</a> Path</h4><p>AST 通常会有很多节点，那么节点直接如何相互关联呢。我们可以使用Path简化这件事。
+Path 是一个对象，它表示两个节点之间的连接。通过这个对象我们可以访问到节点，父节点以及进行一系列节点操作相关的方法(类似DOM操作)。</p><pre class="language-text"><code>const MyVisitor = {
+    Identifier(path) {
+        console.log('visiting:' + path.node.name);
+    }
+}
+</code></pre><h3 id="api"><a href="#api" aria-hidden="true" class="header-anchor">#</a> API</h3><p>babel实际上是一组模块的集合.</p><h4 id="babylon"><a href="#babylon" aria-hidden="true" class="header-anchor">#</a> babylon</h4><ol><li>基本使用</li></ol><pre class="language-text"><code>import babylon from &quot;babylon&quot;;
+const code = `function square(n) {
+    return n * n;
+}`;
+babylon.parse(code);
+</code></pre><ol start="2"><li>parse方法还能够传递选项</li></ol><pre class="language-text"><code>babylon.parse(code, {
+    sourceType: 'module',
+    plugins: ['jsx']
+});
+</code></pre><p>sourceType可以是'module'或者是'script'它表示babylon应该用哪种模式来解析。'module'将会在严格模式下解析并允许模块定义。&quot;script&quot;则不会。</p><h4 id="babel-traverse"><a href="#babel-traverse" aria-hidden="true" class="header-anchor">#</a> babel-traverse</h4><p>babel Traverse模块维护了整棵树的状态，并且负责替换，移除和添加节点。
+我们可以和Babylon一起来遍历和更新节点:</p><pre class="language-text"><code>var babel = require('babel-core');
+const babylon = require('babylon');
+const traverse = require('babel-traverse').default;
+const generator = require('babel-generator').default;
+
+const code = `
+function square(n) {
+    return n * n;
+}`;
+
+const ast = babylon.parse(code, {
+    sourceType: &quot;module&quot;
+});
+
+traverse(ast, {
+    enter(path) {
+        if(
+            path.node.type === 'Identifier' &amp;&amp;
+            path.node.name === 'n'
+        ) {
+            path.node.name = 'x';
+        }
+    }
+})
+
+console.log(generator(ast).code);
+</code></pre><h4 id="babel-types"><a href="#babel-types" aria-hidden="true" class="header-anchor">#</a> babel-types</h4><p>Babel Types模块是一个用于ast节点的Lodash式的工具库,它包含构造，验证以及变换ast节点的方法。该工具库包含考虑周到的工具方法，对编写处理ast处理逻辑非常有用。</p><ol><li>示例</li></ol><pre class="language-text"><code>import traverse from &quot;babel-traverse&quot;;
+import t from &quot;babel-types&quot;;
+
+traverse(ast, {
+  enter(path) {
+    if (t.isIdentifier(path.node, { name: &quot;n&quot; })) {
+      path.node.name = &quot;x&quot;;
+    }
+  }
+});
+</code></pre><ol start="2"><li>Definitions(定义)
+Babel Types模块拥有每一个单一类型节点的定义, 包括节点包括哪些属性，什么合法值，如何构建节点遍历节点，以及节点的别名等信息。
+单一节点类型的定义形式如下:</li></ol><pre class="language-text"><code>defineType(&quot;BinaryExpression&quot;, {
+  builder: [&quot;operator&quot;, &quot;left&quot;, &quot;right&quot;],
+  fields: {
+    operator: {
+      validate: assertValueType(&quot;string&quot;)
+    },
+    left: {
+      validate: assertNodeType(&quot;Expression&quot;)
+    },
+    right: {
+      validate: assertNodeType(&quot;Expression&quot;)
+    }
+  },
+  visitor: [&quot;left&quot;, &quot;right&quot;],
+  aliases: [&quot;Binary&quot;, &quot;Expression&quot;]
+});
+</code></pre><ol start="3"><li>Builders(构建器)
+上面的BinaryExpression 定义有一个builder字段。</li></ol><pre class="language-text"><code>builder: ['operator', 'left', 'right']
+</code></pre><p>这是由于每一个节点类型都有构造器方法builder。按照类似下面方式使用</p><pre class="language-text"><code>t.binaryExpression('*', t.identifier(&quot;a&quot;), t.identifier(&quot;b&quot;));
+</code></pre><p>可以创建如下的AST:</p><pre class="language-text"><code>{
+  type: &quot;BinaryExpression&quot;,
+  operator: &quot;*&quot;,
+  left: {
+    type: &quot;Identifier&quot;,
+    name: &quot;a&quot;
+  },
+  right: {
+    type: &quot;Identifier&quot;,
+    name: &quot;b&quot;
+  }
+}
+</code></pre><ol start="4"><li>Validators(验证器)
+BinaryExpression的定义还包含了节点的字段fields信息，以及如何验证这些字段</li></ol><pre class="language-text"><code>fields: {
+  operator: {
+    validate: assertValueType(&quot;string&quot;)
+  },
+  left: {
+    validate: assertNodeType(&quot;Expression&quot;)
+  },
+  right: {
+    validate: assertNodeType(&quot;Expression&quot;)
+  }
+}
+</code></pre><ul><li>可以创建两种验证方法，第一种是JSX</li></ul><pre class="language-text"><code>t.isBinaryExpression(maybeBinaryExpressionNode)
+</code></pre><ul><li>同时可以传入第二个参数来确保节点包含特定的属性和值。</li></ul><pre class="language-text"><code>t.isBinaryExpression(maybeBinaryExpressionNode, { operator: &quot;*&quot; });
+</code></pre><h4 id="babel-generator"><a href="#babel-generator" aria-hidden="true" class="header-anchor">#</a> babel-generator</h4><p>Babel Generator 模块是Babel代码生成器,它读取AST并将转换成代码和源码映射。</p><pre class="language-text"><code>import * as babylon from &quot;babylon&quot;;
+import generate from &quot;babel-generator&quot;;
+
+const code = `function square(n) {
+  return n * n;
+}`;
+
+const ast = babylon.parse(code);
+
+generate(ast, {}, code);
+</code></pre><h4 id="babel-template"><a href="#babel-template" aria-hidden="true" class="header-anchor">#</a> babel-template</h4><p>babel-template 是另外一个虽然很小但是非常有用的模块。它能让你编写字符串形式并且带有占位符的代码来代替手动编码, 尤其是生成的大规模AST时候。</p><pre class="language-text"><code>import template from &quot;babel-template&quot;;
+import generate from &quot;babel-generator&quot;;
+import * as t from &quot;babel-types&quot;;
+
+const buildRequire = template(`
+  var IMPORT_NAME = require(SOURCE);
+`);
+
+const ast = buildRequire({
+  IMPORT_NAME: t.identifier(&quot;myModule&quot;),
+  SOURCE: t.stringLiteral(&quot;my-module&quot;)
+});
+
+console.log(generate(ast).code);
+// var myModule = require(&quot;my-module&quot;);
+</code></pre><h3 id="babel插件"><a href="#babel插件" aria-hidden="true" class="header-anchor">#</a> Babel插件</h3><p>// http://web.jobbole.com/91277/
+1.</p><pre class="language-text"><code>const code = `abs(-8);`;
+
+const visitor = {
+	CallExpression(path) {
+		if (path.node.callee.name !== 'abs') return;
+
+		path.replaceWith(t.CallExpression(
+			t.MemberExpression(t.identifier('Math'), t.identifier('abs')),
+			path.node.arguments
+		));
+	}
+};
+
+const result = babel.transform(code, {
+	plugins: [{
+		visitor: visitor
+	}]
+});
+
+// Math.abs(-8)
+console.log(result.code);
+</code></pre><ol start="2"><li></li></ol><pre class="language-text"><code>function MyVisitor({ types: t }) {
+    return {
+      visitor: {
+        BinaryExpression(path) {
+            if (path.node.operator !== &quot;===&quot;) {
+                return;
+            }
+            const left = path.get('left');
+            const right = path.get('right');
+            path.node.left = t.identifier(&quot;sebmck&quot;);
+        }
+      }
+    };
+}
+const code = 'foo === bar';
+const ast = babel.transform(code, {plugins: [MyVisitor]});
+console.log(ast.code);
+</code></pre><h3 id="转换操作"><a href="#转换操作" aria-hidden="true" class="header-anchor">#</a> 转换操作</h3><h4 id="访问"><a href="#访问" aria-hidden="true" class="header-anchor">#</a> 访问</h4><ol><li>获取子节点的path
+为了得到一个AST节点的属性值, 我们一般先访问到该节点，然后利用path.node.property方法即可。</li></ol><pre class="language-text"><code>BinaryExpression(path) {
+    path.node.left,
+    path.node.operator
+}
+</code></pre><ol start="2"><li>检查子节点的类型</li></ol><ul><li>最好的方式是</li></ul><pre class="language-text"><code>BinaryExpression(path) {
+    if (t.isIdentifier(path.node.left)) {
+        // ..
+    }
+}
+</code></pre><ul><li>同样可以对节点的属性们做浅层的检查</li></ul><pre class="language-text"><code>BinaryExpression(path) {
+    if (t.isIdentifier(path.node.left, {name: 'n'})) {
+        // ..
+    }
+}
+
+</code></pre><p>等价于:</p><pre class="language-text"><code>BinaryExpression(path) {
+  if (
+    path.node.left != null &amp;&amp;
+    path.node.left.type === &quot;Identifier&quot; &amp;&amp;
+    path.node.left.name === &quot;n&quot;
+  ) {
+    // ...
+  }
+}
+</code></pre><ol start="3"><li>检查路径(Path)类型
+一个路径具有相同的方法检查节点的类型:</li></ol><pre class="language-text"><code>BinaryExpression(path) {
+    if (path.get('left').isIdentifier({name: 'n'})) {
+        // ..
+    }
+}
+</code></pre><p>相当于:</p><pre class="language-text"><code>BinaryExpression(path) {
+    if (t.isIdentifier(path.node.left, {name: 'n'})) {
+        // ...
+    }
+}
+</code></pre><ol start="3"><li>检查标识符(Identifier)是否被引用</li></ol><pre class="language-text"><code>Identifier(path) {
+  if(path.isReferencedIdentifier()) { // 等价于 t.isReferenced(path.node, path.parent)
+    // ...
+  }
+}
+</code></pre><ol start="4"><li>找到特定的父路径</li></ol><ul><li>从一个路径向上遍历语法树，直到满足相应条件</li></ul><pre class="language-text"><code>path.findParent(path =&gt; path.isObjectExpression());
+</code></pre><ul><li>遍历当前节点</li></ul><pre class="language-text"><code>path.find(path =&gt; path.isObjectExpression())
+</code></pre><ul><li>查找最接近的父函数或程序</li></ul><pre class="language-text"><code>path.getFunctionParent()
+</code></pre><ul><li>向上遍历语法树，直到找到在列表中的父节点路径</li></ul><pre class="language-text"><code>path.getStatementParent()
+</code></pre><ol start="5"><li>获取同级路径</li></ol></div><!----><!----></div></div></div>
+    <script src="/blogsite/assets/js/17.ef5f2423.js" defer></script><script src="/blogsite/assets/js/app.cf137931.js" defer></script>
+  </body>
+</html>

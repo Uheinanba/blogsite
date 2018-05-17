@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>黑曼巴个人博客 | 导航栏和侧栏</title>
+    <meta name="description" content="用于平时记录学习和心得的小天地">
+    
+    
+    <link rel="preload" href="/blogsite/assets/css/0.styles.432babc9.css" as="style"><link rel="preload" href="/blogsite/assets/js/app.cf137931.js" as="script"><link rel="preload" href="/blogsite/assets/js/3.20f50f93.js" as="script"><link rel="prefetch" href="/blogsite/assets/js/10.2b5dcc51.js"><link rel="prefetch" href="/blogsite/assets/js/1.7585f36b.js"><link rel="prefetch" href="/blogsite/assets/js/2.e1b99b9c.js"><link rel="prefetch" href="/blogsite/assets/js/4.603cb0b6.js"><link rel="prefetch" href="/blogsite/assets/js/5.d4129559.js"><link rel="prefetch" href="/blogsite/assets/js/6.2ef45a77.js"><link rel="prefetch" href="/blogsite/assets/js/7.ea56e563.js"><link rel="prefetch" href="/blogsite/assets/js/8.9527f235.js"><link rel="prefetch" href="/blogsite/assets/js/9.24bb49df.js"><link rel="prefetch" href="/blogsite/assets/js/11.1bb10b6b.js"><link rel="prefetch" href="/blogsite/assets/js/12.6f18d836.js"><link rel="prefetch" href="/blogsite/assets/js/13.3652407e.js"><link rel="prefetch" href="/blogsite/assets/js/14.f13b26b1.js"><link rel="prefetch" href="/blogsite/assets/js/15.3b70d352.js"><link rel="prefetch" href="/blogsite/assets/js/16.bbb8eb49.js"><link rel="prefetch" href="/blogsite/assets/js/17.ef5f2423.js"><link rel="prefetch" href="/blogsite/assets/js/18.ed11c92c.js"><link rel="prefetch" href="/blogsite/assets/js/19.4f51ced4.js"><link rel="prefetch" href="/blogsite/assets/js/20.199ad0d9.js"><link rel="prefetch" href="/blogsite/assets/js/21.c0d5fc9a.js"><link rel="prefetch" href="/blogsite/assets/js/22.8686f917.js">
+    <link rel="stylesheet" href="/blogsite/assets/css/0.styles.432babc9.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/blogsite/" class="home-link router-link-active"><!----><span class="site-name">
+      黑曼巴个人博客
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">前端框架</span><span class="arrow right"></span></a><ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----><a href="/blogsite/react/" class="nav-link">React</a></li><li class="dropdown-item"><!----><a href="/blogsite/vue/" class="nav-link">Vue</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">javascript</span><span class="arrow right"></span></a><ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----><a href="/blogsite/fp/" class="nav-link">函数式编程</a></li><li class="dropdown-item"><!----><a href="/blogsite/ast/" class="nav-link">AST</a></li></ul></div></div><div class="nav-item"><a href="/blogsite/tools/" class="nav-link router-link-active">工具</a></div><!----></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">前端框架</span><span class="arrow right"></span></a><ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----><a href="/blogsite/react/" class="nav-link">React</a></li><li class="dropdown-item"><!----><a href="/blogsite/vue/" class="nav-link">Vue</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">javascript</span><span class="arrow right"></span></a><ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----><a href="/blogsite/fp/" class="nav-link">函数式编程</a></li><li class="dropdown-item"><!----><a href="/blogsite/ast/" class="nav-link">AST</a></li></ul></div></div><div class="nav-item"><a href="/blogsite/tools/" class="nav-link router-link-active">工具</a></div><!----></nav><!----></div><div class="page"><div class="content"><h3 id="导航栏和侧栏"><a href="#导航栏和侧栏" aria-hidden="true" class="header-anchor">#</a> 导航栏和侧栏</h3><p><img src="/blogsite/assets/img/vuepress_nav.4ab340f0.gif" alt="An image"></p><pre class="language-text"><code>module.exports = {
+    themeConfig:{
+        nav: [ // 导航栏
+            { text: '工具', link: '/tools/' },
+            {
+                text: 'github',
+                // 这里是下拉列表展现形式。
+                items: [
+                    {   
+                        text: 'focus-outside', 
+                        link: 'https://github.com/TaoXuSheng/focus-outside' 
+                    },
+                    {   
+                        text: 'stylus-converter', 
+                        link: 'https://github.com/TaoXuSheng/stylus-converter' 
+                    },
+                ]
+            }
+        ],
+        sidebar: [ // 侧栏
+            {
+              title: 'Counter',
+              collapsable: false,
+              children: [
+                '/counter/counter-app'
+              ]
+            },
+            {
+              title: 'API Guide',
+              collapsable: false,
+              children: [
+                  '/tools/guide',
+                  '/tools/api'
+              ]
+            }
+        ]
+    }
+}
+</code></pre><h3 id="在vuepress中注册组件"><a href="#在vuepress中注册组件" aria-hidden="true" class="header-anchor">#</a> 在VuePress中注册组件</h3><ol><li>自定义组件
+在.vuepress/components中增加组件 my-header.vue</li></ol><pre class="language-text"><code>&lt;template&gt;
+  &lt;div&gt;
+      &lt;h1&gt;This Header is actually a Vue Template&lt;/h1&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+&lt;script&gt;
+    
+&lt;/script&gt;
+&lt;style scoped&gt;
+&lt;/style&gt;
+</code></pre><p>无需手动引用直接在md文件中使用组件即可<code>&lt;my-header&gt;&lt;/my-header&gt;</code></p><ol start="2"><li>引用组件库
+假设我需要做代码演示(引用了第三方库),这时候我们通常统一的注册。在.vuepress/enhanceApp.js来配置。
+下面我们引入element-ui组件库。</li></ol><pre class="language-text"><code>// 全局注册 Element 组件库
+import Vue from 'vue'
+import Element from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
+
+export default ({
+  Vue,
+  options,
+  router
+}) =&gt; {
+  Vue.use(Element)
+}
+</code></pre></div><!----><!----></div></div></div>
+    <script src="/blogsite/assets/js/3.20f50f93.js" defer></script><script src="/blogsite/assets/js/app.cf137931.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>黑曼巴个人博客 | react in patterns</title>
+    <meta name="description" content="用于平时记录学习和心得的小天地">
+    
+    
+    <link rel="preload" href="/blogsite/assets/css/0.styles.432babc9.css" as="style"><link rel="preload" href="/blogsite/assets/js/app.cf137931.js" as="script"><link rel="preload" href="/blogsite/assets/js/8.9527f235.js" as="script"><link rel="prefetch" href="/blogsite/assets/js/10.2b5dcc51.js"><link rel="prefetch" href="/blogsite/assets/js/1.7585f36b.js"><link rel="prefetch" href="/blogsite/assets/js/2.e1b99b9c.js"><link rel="prefetch" href="/blogsite/assets/js/3.20f50f93.js"><link rel="prefetch" href="/blogsite/assets/js/4.603cb0b6.js"><link rel="prefetch" href="/blogsite/assets/js/5.d4129559.js"><link rel="prefetch" href="/blogsite/assets/js/6.2ef45a77.js"><link rel="prefetch" href="/blogsite/assets/js/7.ea56e563.js"><link rel="prefetch" href="/blogsite/assets/js/9.24bb49df.js"><link rel="prefetch" href="/blogsite/assets/js/11.1bb10b6b.js"><link rel="prefetch" href="/blogsite/assets/js/12.6f18d836.js"><link rel="prefetch" href="/blogsite/assets/js/13.3652407e.js"><link rel="prefetch" href="/blogsite/assets/js/14.f13b26b1.js"><link rel="prefetch" href="/blogsite/assets/js/15.3b70d352.js"><link rel="prefetch" href="/blogsite/assets/js/16.bbb8eb49.js"><link rel="prefetch" href="/blogsite/assets/js/17.ef5f2423.js"><link rel="prefetch" href="/blogsite/assets/js/18.ed11c92c.js"><link rel="prefetch" href="/blogsite/assets/js/19.4f51ced4.js"><link rel="prefetch" href="/blogsite/assets/js/20.199ad0d9.js"><link rel="prefetch" href="/blogsite/assets/js/21.c0d5fc9a.js"><link rel="prefetch" href="/blogsite/assets/js/22.8686f917.js">
+    <link rel="stylesheet" href="/blogsite/assets/css/0.styles.432babc9.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a href="/blogsite/" class="home-link router-link-active"><!----><span class="site-name">
+      黑曼巴个人博客
+    </span></a><div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""><!----></div><nav class="nav-links can-hide"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">前端框架</span><span class="arrow right"></span></a><ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----><a href="/blogsite/react/" class="nav-link router-link-active">React</a></li><li class="dropdown-item"><!----><a href="/blogsite/vue/" class="nav-link">Vue</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">javascript</span><span class="arrow right"></span></a><ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----><a href="/blogsite/fp/" class="nav-link">函数式编程</a></li><li class="dropdown-item"><!----><a href="/blogsite/ast/" class="nav-link">AST</a></li></ul></div></div><div class="nav-item"><a href="/blogsite/tools/" class="nav-link">工具</a></div><!----></nav></div></header><div class="sidebar-mask"></div><div class="sidebar"><nav class="nav-links"><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">前端框架</span><span class="arrow right"></span></a><ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----><a href="/blogsite/react/" class="nav-link router-link-active">React</a></li><li class="dropdown-item"><!----><a href="/blogsite/vue/" class="nav-link">Vue</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">javascript</span><span class="arrow right"></span></a><ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----><a href="/blogsite/fp/" class="nav-link">函数式编程</a></li><li class="dropdown-item"><!----><a href="/blogsite/ast/" class="nav-link">AST</a></li></ul></div></div><div class="nav-item"><a href="/blogsite/tools/" class="nav-link">工具</a></div><!----></nav><!----></div><div class="page"><div class="content"><h1 id="react-in-patterns"><a href="#react-in-patterns" aria-hidden="true" class="header-anchor">#</a> react-in-patterns</h1><h2 id="composition-组合"><a href="#composition-组合" aria-hidden="true" class="header-anchor">#</a> Composition 组合</h2><blockquote><p>React最大的一个优势在于组合性,下面探讨下react组合的一些技巧</p></blockquote><p>演示例子</p><pre class="language-text"><code>const Navgation  = () =&gt; &lt;nav&gt;home Nav&lt;/nav&gt;
+const Header  = () =&gt; &lt;Navgation/&gt;
+const App = ()  = () =&gt; &lt;Header /&gt;
+</code></pre><p>APP -&gt; Header-&gt; Navgation
+问题:</p><ul><li>假设我们需要Header,只是Navgation换成别组件。</li><li>强依赖,Header依赖于Navgation,对于测试不友好。</li></ul><h3 id="chilren"><a href="#chilren" aria-hidden="true" class="header-anchor">#</a> chilren</h3><pre class="language-text"><code>const Navgation  = () =&gt; &lt;nav&gt;home Nav&lt;/nav&gt;
+const Header  = ({children}) =&gt; &lt;div&gt;{children}&lt;/div&gt;
+const App = () =&gt; &lt;Header&gt;&lt;Navgation/&gt;&lt;/Header&gt;
+</code></pre><p>这里Header不在强依赖Navgation组件,而是依赖于props.children。</p><h3 id="chilren-component-as-props"><a href="#chilren-component-as-props" aria-hidden="true" class="header-anchor">#</a> chilren component as props</h3><pre class="language-text"><code>const Navgation  = () =&gt; &lt;nav&gt;home Nav&lt;/nav&gt;
+const Header  = ({nav}) =&gt; &lt;div&gt;{nav}&lt;/div&gt;
+const App = () =&gt; &lt;Header nav={&lt;Navgation/&gt;} /&gt;
+</code></pre><p>将子组件作为props传递</p><h3 id="hoc"><a href="#hoc" aria-hidden="true" class="header-anchor">#</a> HOC</h3><pre class="language-text"><code>const Navgation  = () =&gt; &lt;nav&gt;home Nav&lt;/nav&gt;
+
+const enhanceComponent = (WarpedComponent) =&gt; {
+  return class newComponent extends React.Component {
+    render() {
+      return &lt;WarpedComponent {...this.props}/&gt;
+    }
+  }
+}
+const Header  = ({nav}) =&gt; &lt;div&gt;{nav}&lt;/div&gt;
+const EnhanceHeader = enhanceComponent(Header);
+
+const App = () &lt;EnhanceHeader nav={&lt;Navgation/&gt;} /&gt;
+</code></pre><p>当然HOC模式还有另外一个特点我们可以在HOC中附加业务逻辑,这样我们可以把一些公用的业务逻辑封装起来。</p><h3 id="function-as-c-children-render-prop"><a href="#function-as-c-children-render-prop" aria-hidden="true" class="header-anchor">#</a> Function as c children, render prop</h3><p>思考下面两段代码:</p><ul><li>封装数据获取逻辑:</li></ul><pre class="language-text"><code>class DataProvider extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { data: null };
+    setTimeout(() =&gt; this.setState({ data: 'Hey there!' }), 5000);
+  }
+  render() {
+    if (this.state.data === null) return null;
+    return (
+      &lt;section&gt;{ this.props.render(this.state.data) }&lt;/section&gt;
+    );
+  }
+}
+
+&lt;DataProvider render={data=&gt; &lt;TableList dataList=data/&gt;}&gt;
+</code></pre><ul><li>封装权限处理:</li></ul><pre class="language-text"><code>&lt;Authorize
+    permissionsInclude={[ 'read:products' ]}
+    render={ () =&gt; &lt;ProductsList /&gt; } /&gt;
+</code></pre><h3 id="依赖注入"><a href="#依赖注入" aria-hidden="true" class="header-anchor">#</a> 依赖注入</h3><p>// TODO https://krasimir.gitbooks.io/react-in-patterns/content/chapter-10/</p><ol><li>使用HOC</li></ol><pre class="language-text"><code>const inject = (Component) =&gt; {
+  return class Injector extends React.Component {
+    render() {
+      return (
+        &lt;Component {...this.props} context={context}/&gt;
+      )
+    }    
+  }
+}
+</code></pre><p>redux 的connect其实也是这种思路
+2. react context v16.3之前
+3. react context v16.3之后版本
+4. 使用模块系统(pub/sub)
+// di.jsx</p><pre class="language-text"><code>var dependencies = {};
+
+export function register(key, dependency) {
+  dependencies[key] = dependency;
+}
+
+export function fetch(key) {
+  if (dependencies[key]) return dependencies[key];
+  throw new Error(`&quot;${ key } is not registered as dependency.`);
+}
+
+export function wire(Component, deps, mapper) {
+  return class Injector extends React.Component {
+    constructor(props) {
+      super(props);
+      this._resolvedDependencies = mapper(...deps.map(fetch));
+    }
+    render() {
+      return (
+        &lt;Component
+          {...this.state}
+          {...this.props}
+          {...this._resolvedDependencies}
+        /&gt;
+      );
+    }
+  };
+}
+
+import { wire } from './di.jsx';
+var Title = function(props) {
+  return &lt;h1&gt;{ props.title }&lt;/h1&gt;;
+};
+
+export default wire(
+  Title,
+  ['my-awesome-title'],
+  title =&gt; ({ title })
+);
+</code></pre></div><!----><!----></div></div></div>
+    <script src="/blogsite/assets/js/8.9527f235.js" defer></script><script src="/blogsite/assets/js/app.cf137931.js" defer></script>
+  </body>
+</html>
