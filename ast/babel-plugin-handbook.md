@@ -262,7 +262,7 @@ console.log(generate(ast).code);
 
 ### Babel插件
 // http://web.jobbole.com/91277/
-
+1. 
 ```
 const code = `abs(-8);`;
 
@@ -285,6 +285,26 @@ const result = babel.transform(code, {
 
 // Math.abs(-8)
 console.log(result.code);
+```
+2. 
+```
+function MyVisitor({ types: t }) {
+    return {
+      visitor: {
+        BinaryExpression(path) {
+            if (path.node.operator !== "===") {
+                return;
+            }
+            const left = path.get('left');
+            const right = path.get('right');
+            path.node.left = t.identifier("sebmck");
+        }
+      }
+    };
+}
+const code = 'foo === bar';
+const ast = babel.transform(code, {plugins: [MyVisitor]});
+console.log(ast.code);
 ```
 
 ### 转换操作
@@ -345,4 +365,30 @@ BinaryExpression(path) {
     }
 }
 ```
+3. 检查标识符(Identifier)是否被引用
+```
+Identifier(path) {
+  if(path.isReferencedIdentifier()) { // 等价于 t.isReferenced(path.node, path.parent)
+    // ...
+  }
+}
+```
+4. 找到特定的父路径
+- 从一个路径向上遍历语法树，直到满足相应条件
+```
+path.findParent(path => path.isObjectExpression());
+```
+- 遍历当前节点
+```
+path.find(path => path.isObjectExpression())
+```
+- 查找最接近的父函数或程序
+```
+path.getFunctionParent()
+```
+- 向上遍历语法树，直到找到在列表中的父节点路径
+```
+path.getStatementParent()
+```
+5. 获取同级路径
 
